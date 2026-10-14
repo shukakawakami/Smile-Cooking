@@ -1,0 +1,642 @@
+@charset "UTF-8";
+
+/* ==========================================================
+   変数
+   ========================================================== */
+:root {
+  /* カラー */
+  --color-base: #FFFFFF;          /* 白 */
+  --color-main: #2E7D32;          /* みどり */
+  --color-main-dark: #1F3A26;     /* フッター背景 */
+  --color-main-hover: #246228;    /* みどりのボタンのホバー */
+  --color-accent: #FF6347;        /* トマト色 */
+  --color-accent-dark: #E5492E;
+  --color-accent-yellow: #FFD166; /* 黄色 */
+  --color-text: #2B2A26;
+  --color-white: #FFFFFF;
+  --color-border: #E3EEDD;
+  --color-bg-light: #F3F8EF;      /* セクション背景（淡いみどり） */
+  --color-text-sub: #4A4F47;
+
+  /* フォント */
+  --font-heading: "M PLUS 1p", sans-serif;
+  --font-body: "M PLUS Rounded 1c", sans-serif;
+
+  /* レイアウト */
+  --content-width: 1200px;
+  --gutter: 24px;
+  --header-height: 72px;
+  --section-space: 120px;     /* セクション間の余白（80px以上） */
+}
+
+/* ==========================================================
+   ベース
+   ========================================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--header-height);
+}
+
+body {
+  margin: 0;
+  background: var(--color-base);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.9;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-weight: 700;
+}
+
+p,
+ul {
+  margin: 0;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* ==========================================================
+   ヘッダー
+   ========================================================== */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  max-width: var(--content-width);
+  min-height: var(--header-height);
+  margin: 0 auto;
+  padding: 12px var(--gutter);
+}
+
+.header__logo {
+  color: var(--color-main);
+}
+
+.header__logo-text {
+  font-family: var(--font-heading);
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.header__nav-list {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.header__nav-link {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--color-text);
+  transition: color 0.2s;
+}
+
+.header__nav-link:hover {
+  color: var(--color-main);
+}
+
+/* ==========================================================
+   ファーストビュー
+   ========================================================== */
+.fv {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - var(--header-height));
+  height: calc(100svh - var(--header-height));
+  min-height: 520px;
+  overflow: hidden;
+  background: #CFE8C7;
+}
+
+.fv__image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.fv__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(20, 40, 25, 0) 40%, rgba(20, 40, 25, 0.35) 100%);
+  pointer-events: none;
+}
+
+.fv__content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--gutter);
+  text-align: center;
+  color: var(--color-white);
+}
+
+/* 白地で子どもの目元・口元が隠れるよう、幅と高さを画面サイズに合わせて確保 */
+.fv__title {
+  width: 64vw;
+  max-width: 100%;
+  padding: max(0.5em, calc(10vh - 0.6em)) 0.8em;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.85);
+  color: var(--color-text);
+  font-size: clamp(32px, 6vw, 80px);
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+
+/* ==========================================================
+   共通：セクション見出し
+   ========================================================== */
+.section-heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  text-align: center;
+}
+
+.section-heading__label {
+  font-family: var(--font-heading);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--color-main);
+}
+
+.section-heading__title {
+  font-size: clamp(28px, 3.6vw, 40px);
+  line-height: 1.4;
+  color: var(--color-text);
+}
+
+/* 濃い背景のセクション用 */
+.section-heading--light .section-heading__label {
+  color: var(--color-accent-yellow);
+}
+
+.section-heading--light .section-heading__title {
+  color: var(--color-white);
+}
+
+/* ==========================================================
+   コース
+   ========================================================== */
+.courses {
+  background: var(--color-bg-light);
+}
+
+.courses__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: var(--section-space) var(--gutter);
+}
+
+.courses__list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.course-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 28px;
+  background: var(--color-white);
+  box-shadow: 0 2px 0 var(--color-border);
+}
+
+/* ホバーで少し大きくする（769px以上・マウス操作のときのみ） */
+@media (min-width: 769px) and (hover: hover) {
+  .course-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .course-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 12px 28px rgba(46, 125, 50, 0.14);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .course-card {
+    transition: none;
+  }
+}
+
+.course-card__image {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+
+.course-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+  padding: 28px 28px 32px;
+}
+
+.course-card__title {
+  font-size: 23px;
+  line-height: 1.5;
+  color: var(--color-main);
+}
+
+.course-card__text {
+  font-size: 16px;
+  color: var(--color-text-sub);
+}
+
+/* ==========================================================
+   ニュース
+   ========================================================== */
+.news__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: var(--section-space) var(--gutter);
+}
+
+.news__list {
+  border-top: 2px solid var(--color-border);
+}
+
+.news__item {
+  border-bottom: 2px solid var(--color-border);
+}
+
+.news__link {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 32px;
+  padding: 24px 12px;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.news__link:hover {
+  background: var(--color-bg-light);
+  color: var(--color-main);
+}
+
+.news__date {
+  font-size: 15px;
+  font-variant-numeric: tabular-nums;
+  color: var(--color-main);
+}
+
+.news__title {
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.news__more {
+  align-self: center;
+  width: 250px;
+  max-width: 100%;
+  padding: 14px 24px;
+  border: 2px solid var(--color-main);
+  border-radius: 999px;
+  background: var(--color-main);
+  color: var(--color-white);
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+.news__more:hover {
+  border-color: var(--color-main-hover);
+  background: var(--color-main-hover);
+}
+
+/* ==========================================================
+   お問い合わせ
+   ========================================================== */
+.contact {
+  background: var(--color-main);
+}
+
+.contact__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: var(--section-space) var(--gutter);
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 40px 36px;
+  border-radius: 32px;
+  background: var(--color-white);
+}
+
+.contact-form__field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.contact-form__label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.contact-form__required {
+  padding: 0 10px;
+  border-radius: 999px;
+  background: var(--color-accent-yellow);
+  color: var(--color-text);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.8;
+}
+
+.contact-form__input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 2px solid var(--color-border);
+  border-radius: 14px;
+  background: var(--color-bg-light);
+  color: var(--color-text);
+  font: inherit;
+  font-size: 16px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.contact-form__input::placeholder {
+  color: #9AA397;
+}
+
+.contact-form__input:focus {
+  border-color: var(--color-main);
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(46, 125, 50, 0.15);
+}
+
+.contact-form__input--textarea {
+  resize: vertical;
+}
+
+.contact-form__submit {
+  align-self: center;
+  width: 250px;
+  max-width: 100%;
+  margin-top: 8px;
+  padding: 14px 24px;
+  border: 2px solid var(--color-accent);
+  border-radius: 999px;
+  background: var(--color-accent);
+  color: var(--color-white);
+  font: inherit;
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+.contact-form__submit:hover {
+  border-color: var(--color-accent-dark);
+  background: var(--color-accent-dark);
+}
+
+.contact-form__submit:focus-visible {
+  outline: 3px solid var(--color-accent-yellow);
+  outline-offset: 3px;
+}
+
+.contact-form__note {
+  margin-top: -8px;
+  font-size: 13px;
+  color: var(--color-text-sub);
+  text-align: center;
+}
+
+/* ==========================================================
+   フッター
+   ========================================================== */
+.footer {
+  background: var(--color-main-dark);
+  color: #E6EFE3;
+}
+
+.footer__inner {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1.4fr 1.2fr;
+  gap: 40px;
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 80px var(--gutter) 56px;
+}
+
+.footer__brand {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footer__logo {
+  font-family: var(--font-heading);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--color-white);
+}
+
+.footer__tagline {
+  font-size: 14px;
+  color: #C3D3BF;
+}
+
+.footer__nav-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footer__nav-link,
+.footer__tel {
+  font-size: 15px;
+  transition: color 0.2s;
+}
+
+.footer__nav-link:hover,
+.footer__tel:hover {
+  color: var(--color-accent-yellow);
+}
+
+.footer__info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footer__heading {
+  font-size: 16px;
+  color: var(--color-white);
+}
+
+.footer__text {
+  font-size: 15px;
+  font-style: normal;
+  line-height: 1.9;
+}
+
+.footer__copyright {
+  padding: 20px var(--gutter);
+  border-top: 1px solid #34543D;
+  text-align: center;
+  color: #A9BCA5;
+}
+
+.footer__copyright small {
+  font-size: 12px;
+}
+
+/* ==========================================================
+   レスポンシブ（768px以下：スマホ表示）
+   ========================================================== */
+@media (max-width: 768px) {
+  :root {
+    --gutter: 16px;
+    --header-height: 104px;
+    --section-space: 80px;
+  }
+
+  body {
+    font-size: 16px;
+  }
+
+  .header__inner {
+    flex-direction: column;
+    gap: 8px;
+    padding: 10px var(--gutter);
+  }
+
+  .header__logo-text {
+    font-size: 19px;
+  }
+
+  .header__nav-list {
+    gap: 18px;
+  }
+
+  .header__nav-link {
+    font-size: 14px;
+  }
+
+  .fv {
+    min-height: 420px;
+  }
+
+  /* 写真を右寄りに表示し、子どもの顔を画面外に出す */
+  .fv__image {
+    object-position: 70% center;
+  }
+
+  .courses__inner {
+    gap: 40px;
+  }
+
+  .courses__list {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .course-card__body {
+    padding: 24px 24px 28px;
+  }
+
+  .news__inner {
+    gap: 40px;
+  }
+
+  .news__link {
+    grid-template-columns: 1fr;
+    gap: 4px;
+    padding: 20px 4px;
+  }
+
+  .news__title {
+    font-size: 16px;
+  }
+
+  .contact__inner {
+    gap: 40px;
+  }
+
+  .contact-form {
+    padding: 32px 20px;
+    border-radius: 24px;
+  }
+
+  .footer__inner {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 56px var(--gutter) 40px;
+  }
+}
+
+/* 768px以下の縦向き画面では子どもの顔が画面外になるため、白地は文字に合わせた大きさにする */
+@media (max-width: 768px) and (orientation: portrait) {
+  .fv__title {
+    width: auto;
+    padding: 0.4em 0.8em;
+  }
+}

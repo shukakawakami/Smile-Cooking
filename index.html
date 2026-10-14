@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Smile Cooking｜親子でたのしむ料理教室</title>
+  <meta name="description" content="Smile Cookingは、小さなお子さまと一緒にたのしめる料理教室です。初回は無料体験としてご参加いただけます。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@500;700;800&family=M+PLUS+Rounded+1c:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- ヘッダー -->
+  <header class="header">
+    <div class="header__inner">
+      <a href="#top" class="header__logo">
+        <span class="header__logo-text">Smile Cooking</span>
+      </a>
+      <nav class="header__nav" aria-label="メインナビゲーション">
+        <ul class="header__nav-list">
+          <li class="header__nav-item"><a href="#courses" class="header__nav-link">コース</a></li>
+          <li class="header__nav-item"><a href="#news" class="header__nav-link">新着情報</a></li>
+          <li class="header__nav-item"><a href="#contact" class="header__nav-link">お問い合わせ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- ファーストビュー -->
+    <section class="fv">
+      <!-- fv_img01.jpg の上部（右の人物の口元から上）をカットした画像 -->
+      <img class="fv__image" src="assets/images/fv_img01_trim.jpg" alt="キッチンで家族一緒に料理をする様子" width="1919" height="950">
+      <div class="fv__overlay" aria-hidden="true"></div>
+      <div class="fv__content">
+        <h1 class="fv__title">Smile Cooking</h1>
+      </div>
+    </section>
+
+    <!-- コース -->
+    <section class="courses" id="courses">
+      <div class="courses__inner">
+        <div class="section-heading">
+          <span class="section-heading__label">COURSE</span>
+          <h2 class="section-heading__title">コース</h2>
+        </div>
+        <ul class="courses__list">
+          <li class="course-card">
+            <img class="course-card__image" src="assets/images/course_img01.jpg" alt="チキンと野菜、ゆで卵をのせた黄色いライスのワンプレート" width="640" height="427" loading="lazy">
+            <div class="course-card__body">
+              <h3 class="course-card__title">お料理コース</h3>
+              <p class="course-card__text">親子で基本的な料理のテクニックを学びながら、一緒に楽しい時間を過ごしましょう。旬の食材を使ったメニューやバランスの取れた食事を作るコツを学べます。はじめて料理をするお子様にも安全に取り組んでいただけます。</p>
+            </div>
+          </li>
+          <li class="course-card">
+            <img class="course-card__image" src="assets/images/course_img02.jpg" alt="お皿に盛りつけた手作りのハムチーズパン" width="640" height="427" loading="lazy">
+            <div class="course-card__body">
+              <h3 class="course-card__title">パン作りコース</h3>
+              <p class="course-card__text">ふっくらとした美味しいパンを親子で一緒に作りましょう！生地作りから焼き上げまでのプロセスを楽しく学び、自宅でも再現できるレシピをご紹介します。手作りのパンで毎日の食卓をもっと楽しく、豊かにできます。</p>
+            </div>
+          </li>
+          <li class="course-card">
+            <img class="course-card__image" src="assets/images/course_img03.jpg" alt="ブルーベリーとミントを飾ったレアチーズタルト" width="640" height="427" loading="lazy">
+            <div class="course-card__body">
+              <h3 class="course-card__title">お菓子作りコース</h3>
+              <p class="course-card__text">親子でスイーツ作りを楽しみましょう。簡単で可愛らしいお菓子から、ちょっとしたチャレンジレシピまで、多彩なメニューを用意しています。特別な日のためのデザートや日常のおやつ作りを通して、お子様との絆が深まります。</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <!-- ニュース -->
+    <section class="news" id="news">
+      <div class="news__inner">
+        <div class="section-heading">
+          <span class="section-heading__label">NEWS</span>
+          <h2 class="section-heading__title">新着情報</h2>
+        </div>
+        <!-- 記事ページができたら各リンクの href を差し替えてください -->
+        <ul class="news__list">
+          <li class="news__item">
+            <a href="#news" class="news__link">
+              <time class="news__date" datetime="2024-06-15">2024/6/15</time>
+              <span class="news__title">七夕イベントのお知らせ</span>
+            </a>
+          </li>
+          <li class="news__item">
+            <a href="#news" class="news__link">
+              <time class="news__date" datetime="2024-02-23">2024/2/23</time>
+              <span class="news__title">お友達紹介キャンペーンについて</span>
+            </a>
+          </li>
+          <li class="news__item">
+            <a href="#news" class="news__link">
+              <time class="news__date" datetime="2023-12-01">2023/12/1</time>
+              <span class="news__title">年末年始の開講日のご案内</span>
+            </a>
+          </li>
+        </ul>
+        <a href="#news" class="news__more">一覧を見る</a>
+      </div>
+    </section>
+    <!-- お問い合わせ -->
+    <section class="contact" id="contact">
+      <div class="contact__inner">
+        <div class="section-heading section-heading--light">
+          <span class="section-heading__label">CONTACT</span>
+          <h2 class="section-heading__title">お問い合わせ</h2>
+        </div>
+
+        <!-- メール送信機能は未実装です（action は送信先が決まったら設定してください） -->
+        <form class="contact-form" action="#" method="post">
+          <div class="contact-form__field">
+            <label class="contact-form__label" for="contact-name">
+              お名前<span class="contact-form__required">必須</span>
+            </label>
+            <input class="contact-form__input" type="text" id="contact-name" name="name" placeholder="山田 花子" autocomplete="name" required>
+          </div>
+          <div class="contact-form__field">
+            <label class="contact-form__label" for="contact-email">
+              メールアドレス<span class="contact-form__required">必須</span>
+            </label>
+            <input class="contact-form__input" type="email" id="contact-email" name="email" placeholder="example@mail.com" autocomplete="email" required>
+          </div>
+          <div class="contact-form__field">
+            <label class="contact-form__label" for="contact-message">お問い合わせ内容</label>
+            <textarea class="contact-form__input contact-form__input--textarea" id="contact-message" name="message" rows="5" placeholder="ご希望の日程やご質問をご記入ください"></textarea>
+          </div>
+          <button class="contact-form__submit" type="submit">送信</button>
+          <p class="contact-form__note">※練習用のため送信できません</p>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- フッター -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <a href="#top" class="footer__logo">Smile Cooking</a>
+        <p class="footer__tagline">親子でたのしむ料理教室</p>
+      </div>
+      <nav class="footer__nav" aria-label="フッターナビゲーション">
+        <ul class="footer__nav-list">
+          <li class="footer__nav-item"><a href="#courses" class="footer__nav-link">コース</a></li>
+          <li class="footer__nav-item"><a href="#news" class="footer__nav-link">新着情報</a></li>
+          <li class="footer__nav-item"><a href="#contact" class="footer__nav-link">お問い合わせ</a></li>
+        </ul>
+      </nav>
+      <div class="footer__info">
+        <h2 class="footer__heading">アクセス</h2>
+        <address class="footer__text">
+          〒000-0000<br>
+          東京都○○区○○ 1-2-3<br>
+          ○○駅より徒歩5分・ベビーカー入店可
+        </address>
+      </div>
+      <div class="footer__info">
+        <h2 class="footer__heading">営業時間</h2>
+        <p class="footer__text">
+          10:00〜17:00（月曜定休）<br>
+          TEL <a href="tel:00-0000-0000" class="footer__tel">00-0000-0000</a>
+        </p>
+      </div>
+    </div>
+    <p class="footer__copyright"><small>&copy; 2026 Smile Cooking</small></p>
+  </footer>
+
+</body>
+</html>
