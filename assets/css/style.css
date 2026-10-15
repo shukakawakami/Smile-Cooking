@@ -173,11 +173,10 @@ img {
   color: var(--color-white);
 }
 
-/* 白地で子どもの目元・口元が隠れるよう、幅と高さを画面サイズに合わせて確保 */
+/* 白地は文字に合わせた大きさにして写真の中央に置く */
 .fv__title {
-  width: 64vw;
   max-width: 100%;
-  padding: max(0.5em, calc(10vh - 0.6em)) 0.8em;
+  padding: 0.4em 0.8em;
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.85);
   color: var(--color-text);
@@ -452,9 +451,14 @@ img {
   transition: background-color 0.2s, border-color 0.2s;
 }
 
-.contact-form__submit:hover {
+.contact-form__submit:hover:not(:disabled) {
   border-color: var(--color-accent-dark);
   background: var(--color-accent-dark);
+}
+
+.contact-form__submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 .contact-form__submit:focus-visible {
@@ -581,13 +585,16 @@ img {
     font-size: 14px;
   }
 
+  /* PCと同じく家族3人が収まるよう、高さを画面ではなく写真の横長比率に合わせる */
   .fv {
-    min-height: 420px;
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 16 / 9;
   }
 
-  /* 写真を右寄りに表示し、子どもの顔を画面外に出す */
-  .fv__image {
-    object-position: 70% center;
+  /* 写真が小さくなるため、白地も小さくする */
+  .fv__title {
+    font-size: clamp(20px, 5vw, 40px);
   }
 
   .courses__inner {
@@ -630,13 +637,5 @@ img {
     grid-template-columns: 1fr;
     gap: 32px;
     padding: 56px var(--gutter) 40px;
-  }
-}
-
-/* 768px以下の縦向き画面では子どもの顔が画面外になるため、白地は文字に合わせた大きさにする */
-@media (max-width: 768px) and (orientation: portrait) {
-  .fv__title {
-    width: auto;
-    padding: 0.4em 0.8em;
   }
 }
